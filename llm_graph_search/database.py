@@ -8,7 +8,7 @@ load_dotenv()
 
 class GraphDatabase():
     def __init__(self):
-        self.db_type  = os.getenv("DB_TYPE", "neoe4j") # default being neo4j
+        self.db_type  = os.getenv("DB_TYPE", "neo4j") # default being neo4j
         
         if self.db_type == "neo4j":
             uri = os.getenv("NEO4J_URI")
