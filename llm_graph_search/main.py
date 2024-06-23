@@ -17,8 +17,8 @@ async def root():
 async def execute_query(query: Query):
     try:
         cypher_query = nl_to_cypher(query.natural_language)
-        result = db.execute_query(cypher_query)
-        return {"cypher_query": cypher_query, "result": result}
+        #result = db.execute_query(cypher_query)
+        return {"cypher_query": cypher_query, "result": ""}
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
 
@@ -26,6 +26,9 @@ async def execute_query(query: Query):
 async def health_check():
     return {"status": "healthy"}
 
+"""
+Enabel this - after neo4j like connection is enabled
 @app.lifespan("shutdown")
 def shutdown_event():
     db.close()
+"""
