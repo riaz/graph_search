@@ -6,13 +6,6 @@ import openai
 #API_KEY = secrets["LLM_API_KEY"]
 
 def nl_to_cypher(query):
-    prompt = f"""
-    Translate the following natural language query to a Cypher query
-    {query}
-
-    Cypher Query:
-    """
-
     client = openai.OpenAI(
         base_url = "https://api.endpoints.anyscale.com/v1",
         # Replace with long-lived credentials for production
@@ -22,7 +15,11 @@ def nl_to_cypher(query):
     # Note: not all arguments are currently supported and will be ignored by the backend.
     response = client.chat.completions.create(**{
     "model": "meta-llama/Meta-Llama-3-70B-Instruct",
-    "messages": [prompt],
+    "messages": [
+        {"role": "system", "content": "Translate the following natural language query to a Cypher query"},
+        {"role": "user", "content": query},
+        {"role": "assistant", "content": "Cypher Query:"}
+    ],
     "temperature": 1,
     "max_tokens": 256,
     "top_p": 1,
