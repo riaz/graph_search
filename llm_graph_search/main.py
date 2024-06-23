@@ -8,6 +8,10 @@ app = FastAPI()
 class Query(BaseModel):
     natural_language: str
 
+@app.get("/")
+async def root():
+    return {"message": "Hello World"}    
+
 @app.post("/execute/")
 async def execute_query(query: Query):
     try:
