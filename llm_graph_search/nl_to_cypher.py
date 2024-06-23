@@ -25,5 +25,6 @@ def nl_to_cypher(query):
     "top_p": 1,
     "frequency_penalty": 0
     })    
-
-    return response.json()
+    
+    return response.model_dump_json()
+    
