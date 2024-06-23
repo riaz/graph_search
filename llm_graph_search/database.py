@@ -6,7 +6,7 @@ from neo4j import GraphDatabase
 # Note: we will make use of a env file to fetch the server configuration we are looking for
 load_dotenv()
 
-class GraphDatabase():
+class GraphDatabaseHelper():
     def __init__(self):
         self.db_type  = os.getenv("DB_TYPE", "neo4j") # default being neo4j
         
