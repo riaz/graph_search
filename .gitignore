@@ -6,6 +6,15 @@ __pycache__/
 # C extensions
 *.so
 
+# twine files
+.pypirc
+
+# dot files
+.env*
+
+# github action files
+.github/
+
 # Distribution / packaging
 .Python
 build/
