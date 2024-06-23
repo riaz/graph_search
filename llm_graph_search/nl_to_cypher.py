@@ -2,8 +2,8 @@ import os
 from dotenv import dotenv_values
 import openai
 
-secrets = dotenv_values('.env.test')
-API_KEY = secrets['LLM_API_KEY']
+#secrets = dotenv_values('.env.test')
+#API_KEY = secrets["LLM_API_KEY"]
 
 def nl_to_cypher(query):
     prompt = f"""
@@ -16,7 +16,7 @@ def nl_to_cypher(query):
     client = openai.OpenAI(
         base_url = "https://api.endpoints.anyscale.com/v1",
         # Replace with long-lived credentials for production
-        api_key = API_KEY
+        api_key = os.environ.get("LLM_API_KEY")
     )
 
     # Note: not all arguments are currently supported and will be ignored by the backend.
