@@ -24,8 +24,6 @@ def nl_to_cypher(query):
     "max_tokens": 256,
     "top_p": 1,
     "frequency_penalty": 0
-    })
+    })    
 
-    cypher_query = response.choice[0].text.strip()
-
-    return cypher_query
+    return response.json()
