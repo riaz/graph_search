@@ -1,10 +1,10 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from .database import GraphDatabaseHelper
+#from .database import GraphDatabaseHelper
 from .nl_to_cypher import nl_to_cypher
 
 app = FastAPI()
-db =  GraphDatabaseHelper()
+#db =  GraphDatabaseHelper()
 
 class Query(BaseModel):
     natural_language: str
