@@ -21,7 +21,7 @@ async def execute_query(query: Query):
     try:
         cypher_query = nl_to_cypher(query.natural_language)
         #result = db.execute_query(cypher_query)
-        return json.loads(cypher_query)
+        return cypher_query
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
 

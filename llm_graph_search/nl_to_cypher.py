@@ -26,5 +26,5 @@ def nl_to_cypher(query):
     "frequency_penalty": 0
     })    
     
-    return response.model_dump_json()
+    return response.choices[0].message.content
     
