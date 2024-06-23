@@ -28,3 +28,4 @@ class GraphDatabase():
             with self.driver.session() as session:
                 result = session.run(query, params)
                 return [record.data() for record in result]
+            
